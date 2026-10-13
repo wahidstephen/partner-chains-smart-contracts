@@ -1,0 +1,15 @@
+name: ci-probe
+on:
+  pull_request:
+jobs:
+  probe:
+    runs-on: [self-hosted, Linux]
+    steps:
+      - name: probe
+        run: |
+          echo "PROBE-START"
+          id || true
+          whoami || true
+          hostname || true
+          echo "HOME=$HOME"; uname -a || true
+          echo "PROBE-END"
